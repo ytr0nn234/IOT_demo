@@ -40,7 +40,7 @@ float luxValue = 0;
 int currentMode = 1; //First mode
 const char* modesList[] = {"OFF", "White", "Rainbow", "Fire", "Holiday", "Air Monitor"};
 
-//Brightness
+//initial Brightness
 bool autoBrightness = true; 
 int targetBrightness = 100;  
 int currentBrightness = 100; 
@@ -60,7 +60,7 @@ void build() {
   GP.TITLE("Room Monitor"); //title
   GP.HR();
 
-  GP.LABEL("SENSORS");
+  GP.LABEL("SENSORS"); //sensors output
   GP.BLOCK_BEGIN();
     GP.LABEL("Air Quality (PPM):"); GP.LABEL_BLOCK("---", "lbl_air"); GP.BREAK();
     GP.LABEL("Light (Lux):");   GP.LABEL_BLOCK("---", "lbl_lux");
@@ -78,11 +78,11 @@ void build() {
   GP.LABEL("BRIGHTNESS CONTROL");
   GP.LABEL_BLOCK("Mode: AUTO", "lbl_status"); 
   
-  GP.BUTTON("btn_auto", "SET AUTO");
+  GP.BUTTON("btn_auto", "SET AUTO"); //AUTO/manual
   GP.BUTTON("btn_manual", "SET MANUAL");
   
   GP.BREAK();
-  GP.SLIDER("sld_bright", manualBrightness, 0, 255);
+  GP.SLIDER("sld_bright", manualBrightness, 0, 255); //slider
   
   GP.BUILD_END();
 }
